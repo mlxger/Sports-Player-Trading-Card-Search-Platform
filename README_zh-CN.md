@@ -172,7 +172,7 @@ data/ocr/{train,validation,test}.*
 
 ## Model and Data Link
 
-该链接提供了经过裁剪训练的yolov8模型和10w+的球星交易卡数据：
+此链接提供了一个裁剪后的 YOLOv8 模型、超过 20 万张球员交易卡的数据，以及适合 OCR 训练后处理的手动标注体育交易卡图像数据：[URL](https://pan.baidu.com/s/1wDWb0PMgmPj3HC7ysD4f4g?pwd=z78a)
 
 ## Evaluation
 
