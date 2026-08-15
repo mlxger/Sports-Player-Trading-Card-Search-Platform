@@ -1,4 +1,4 @@
-# CardScope AI
+# Sports Card Scope AI
 
 <p align="center"><img src="assets/image.png" alt="CardScope AI 球星卡智能分析流程"></p>
 
@@ -103,6 +103,9 @@ CARD_PIPELINE_YOLO_MODEL_PATH=models/detection/yolov8_card.pt
 
 ### OCR 识别
 
+因为资源限制原因，尚未能提供经过LoRA微调训练的Qwen3-VL模型，仓库原生项目使用的是Ollama上的Qwen3-VL-8B模型，实际测试也有90%+的准确性.
+如果想要更优性能的模型，以下有链接提供了部分OCR训练的图像数据，可以根据仓库的模型配置自行训练。
+
 ~~~bash
 ollama serve
 ollama pull qwen3-vl:8b-instruct-q8_0
@@ -135,15 +138,43 @@ python -m ocr_trainer.evaluate data/eval.jsonl data/predictions.jsonl
 card-pipeline-train-ranker data/ranking.csv models/ranking/ranking_model.joblib --enable-env .env
 ~~~
 
+### Milvus 向量数据管理
+
+API 同时提供集合初始化和向量实体管理能力，便于接入批量导入、离线特征生成和后台数据维护。向量长度必须与当前 2,304 维多模态 schema 一致。
+
+~~~bash
+# 创建 HNSW 集合和标量索引
+curl -X POST http://localhost:8000/api/v1/milvus/collections/create
+
+# 插入单条向量实体
+curl -X POST http://localhost:8000/api/v1/milvus/records \\
+  -H "Content-Type: application/json" \\
+  -d '{"image_id":"card-001","tool_id":"marketplace-a","player_id":"player-001","status":0,"embedding":[0.01,0.02]}'
+
+# 批量插入向量实体
+curl -X POST http://localhost:8000/api/v1/milvus/records/batch \\
+  -H "Content-Type: application/json" \\
+  -d '{"records":[{"image_id":"card-001","tool_id":"marketplace-a","player_id":"player-001","status":0,"embedding":[0.01,0.02]}]}'
+
+# 查询数量、读取自动生成主键、删除记录
+curl http://localhost:8000/api/v1/milvus/count
+curl http://localhost:8000/api/v1/milvus/records/123
+curl -X DELETE http://localhost:8000/api/v1/milvus/records \\
+  -H "Content-Type: application/json" -d '{"primary_keys":[123,124]}'
+~~~
+
+真实请求请发送多模态编码器生成的完整 2,304 维向量；图片到向量的完整索引流程仍可使用 `card-pipeline-index-images`。
+
 ## API 接口覆盖
 
-| 模块 | 接口 |
-|---|---|
-| 健康检查 | GET /health |
-| 图像检索 | POST /api/v1/retrieval/search |
-| OCR | GET /api/v1/ocr/fields；POST /api/v1/ocr/recognize/single；POST /api/v1/ocr/recognize/double |
-| RAG | GET /api/v1/rag/fields；GET /api/v1/rag/count；卡片 CRUD、批量导入、语义/字段/多条件搜索、Excel 导入 |
-| 诊断 | GET /api/v1/system/dependencies |
+| 模块     | 接口                                                         |
+| -------- | ------------------------------------------------------------ |
+| 健康检查 | GET /health                                                  |
+| 图像检索 | POST /api/v1/retrieval/search                                |
+| Milvus   | POST /api/v1/milvus/collections/create；GET /api/v1/milvus/count；POST /api/v1/milvus/records；POST /api/v1/milvus/records/batch；GET /api/v1/milvus/records/{primary_key}；DELETE /api/v1/milvus/records |
+| OCR      | GET /api/v1/ocr/fields；POST /api/v1/ocr/recognize/single；POST /api/v1/ocr/recognize/double |
+| RAG      | GET /api/v1/rag/fields；GET /api/v1/rag/count；卡片 CRUD、批量导入、语义/字段/多条件搜索、Excel 导入 |
+| 诊断     | GET /api/v1/system/dependencies                              |
 
 ## Project Structure
 
@@ -167,6 +198,10 @@ data/ocr/{train,validation,test}.*
 ~~~
 
 .env.example 集中管理设备、Milvus、Ollama、ChromaDB、embedding 缓存和模型路径。
+
+## Model and Data Link
+
+此链接提供了一个在 YOLOv8 模型基础上训练的裁剪图像卡模型、超过 20 万张球员交易卡的数据，以及适合 OCR 训练后处理的手动标注体育交易卡图像数据：[URL](https://pan.baidu.com/s/1wDWb0PMgmPj3HC7ysD4f4g?pwd=z78a)
 
 ## Evaluation
 

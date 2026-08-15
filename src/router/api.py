@@ -19,6 +19,7 @@ from service.ocr import CardOcrService, build_ocr_service
 from service.retrieval import ImageRetrievalService
 from settings import Settings, get_settings
 
+from .milvus import router as milvus_router
 from .ocr import router as ocr_router
 from .rag import router as rag_router
 from .system import router as system_router
@@ -165,6 +166,7 @@ def create_app(
     app.include_router(ocr_router, prefix=runtime_settings.api_prefix)
     app.include_router(rag_router, prefix=runtime_settings.api_prefix)
     app.include_router(system_router, prefix=runtime_settings.api_prefix)
+    app.include_router(milvus_router, prefix=runtime_settings.api_prefix)
     return app
 
 

@@ -153,6 +153,32 @@ class MilvusVectorStore:
         self._collection.flush()
         return len(entities)
 
+    def count(self) -> int:
+        """Return the number of entities currently stored in the collection."""
+        return int(self._collection.num_entities)
+
+    def get_by_ids(self, primary_keys: Sequence[int]) -> list[dict[str, object]]:
+        """Read inserted entities by their Milvus auto-generated primary keys."""
+        ids = [int(value) for value in primary_keys]
+        if not ids:
+            return []
+        encoded = ", ".join(str(value) for value in ids)
+        rows = self._collection.query(
+            expr=f"pk_id in [{encoded}]",
+            output_fields=["pk_id", "image_id", "tool_id", "player_id", "status"],
+        )
+        return [dict(row) for row in rows]
+
+    def delete_by_ids(self, primary_keys: Sequence[int]) -> int:
+        """Delete entities by primary key and flush the mutation."""
+        ids = [int(value) for value in primary_keys]
+        if not ids:
+            return 0
+        encoded = ", ".join(str(value) for value in ids)
+        result = self._collection.delete(expr=f"pk_id in [{encoded}]")
+        self._collection.flush()
+        return int(getattr(result, "delete_count", len(ids)))
+
     def close(self) -> None:
         self._connections.disconnect(self._settings.milvus_alias)
 
