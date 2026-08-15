@@ -105,6 +105,8 @@ YOLO is applied automatically during indexing and retrieval.
 
 ### OCR
 
+Due to resource limitations, a LoRA-tuned Qwen3-VL model is not yet available. The repository's native project uses the Qwen3-VL-8B model from Ollama, which achieves over 92+% accuracy in actual tests.
+
 ~~~bash
 ollama serve
 ollama pull qwen3-vl:8b-instruct-q8_0
