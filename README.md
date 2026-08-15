@@ -105,7 +105,8 @@ YOLO is applied automatically during indexing and retrieval.
 
 ### OCR
 
-Due to resource limitations, a LoRA-tuned Qwen3-VL model is not yet available. The repository's native project uses the Qwen3-VL-8B model from Ollama, which achieves over 92+% accuracy in actual tests.
+Due to resource limitations, a LoRA-tuned Qwen3-VL model is not yet available. The repository's native project uses the Qwen3-VL-8B model from Ollama, which achieves over 90+% accuracy in actual tests.
+The following link provides some image data for OCR training, which you can use to train your own model based on the repository's model configuration.
 
 ~~~bash
 ollama serve
@@ -174,7 +175,7 @@ The .env.example file centralizes device, Milvus, Ollama, ChromaDB, embedding ca
 
 ## Model and Data Link
 
-This link provides a cropped YOLOv8 model, data on over 200,000 player trade cards, and manually annotated sports trade card image data suitable for OCR post-training: [URL](https://pan.baidu.com/s/1wDWb0PMgmPj3HC7ysD4f4g?pwd=z78a)
+This link provides a cropped image card model trained on a YOLOv8 model, a dataset of over 200,000 player trade cards, and manually annotated sports trade card image data suitable for OCR post-training processing: [URL](https://pan.baidu.com/s/1wDWb0PMgmPj3HC7ysD4f4g?pwd=z78a)
 
 ## Evaluation
 
