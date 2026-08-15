@@ -1,4 +1,4 @@
-# CardScope AI
+# Sports Card Scope AI
 
 <p align="center"><img src="assets/image.png" alt="CardScope AI 球星卡智能分析流程"></p>
 
