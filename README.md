@@ -174,7 +174,7 @@ The .env.example file centralizes device, Milvus, Ollama, ChromaDB, embedding ca
 
 ## Model and Data Link
 
-This link provides a cropped YOLOv8 model and data on over 100,000 player trading cards: [URL](https://pan.baidu.com/s/1wDWb0PMgmPj3HC7ysD4f4g?pwd=z78a)
+This link provides a cropped YOLOv8 model, data on over 200,000 player trade cards, and manually annotated sports trade card image data suitable for OCR post-training: [URL](https://pan.baidu.com/s/1wDWb0PMgmPj3HC7ysD4f4g?pwd=z78a)
 
 ## Evaluation
 
