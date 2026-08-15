@@ -1,4 +1,4 @@
-# CardScope AI
+# Sports Card Scope AI
 
 <p align="center"><img src="assets/image_en.png" alt="CardScope AI workflow"></p>
 
@@ -169,6 +169,10 @@ data/ocr/{train,validation,test}.*
 ~~~
 
 The .env.example file centralizes device, Milvus, Ollama, ChromaDB, embedding cache and model-path configuration.
+
+## Model and Data Link
+
+This link provides a cropped YOLOv8 model and data on over 100,000 player trading cards:
 
 ## Evaluation
 
