@@ -1,0 +1,15 @@
+.git
+.pytest_cache
+.ruff_cache
+__pycache__
+*.pyc
+*.out
+*.ipynb_checkpoints
+data
+models
+tests
+image_retrieval
+ocr_rag
+assets
+src/test
+*.xlsx

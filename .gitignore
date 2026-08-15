@@ -1,0 +1,42 @@
+# Python and tooling
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local configuration and runtime state
+.env
+.env.*
+!.env.example
+*.log
+
+# Model, vector database and dataset artifacts
+models/
+data/
+outputs/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.joblib
+*.bin
+
+# Local application state
+chroma_db/
+milvus_data/
+*.db
+*.sqlite
+
+# IDE/OS files
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+Desktop.ini

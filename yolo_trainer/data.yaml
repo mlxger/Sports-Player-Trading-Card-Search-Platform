@@ -1,0 +1,8 @@
+train: /home/lab1015/programmes/xtdir/0615/code/embImgs/train/images  # train images (relative to 'path') 128 images
+val: /home/lab1015/programmes/xtdir/0615/code/embImgs/val/images  # val images (relative to 'path') 128 images
+test: /home/lab1015/programmes/xtdir/0615/code/embImgs/test/images
+ 
+nc: 2
+ 
+# Classes
+names: ["front-book-card", "back-book-card"]

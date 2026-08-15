@@ -1,0 +1,21 @@
+# LLaMA Factory template for the OCR model fine-tuning stage.
+# This is intentionally a template: base weights, dataset and output adapter are supplied
+# by the training environment and are not downloaded or bundled by the API package.
+model_name_or_path: models/qwen/Qwen3-VL-8B
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+dataset: card_ocr_train
+template: qwen3_vl
+cutoff_len: 4096
+output_dir: models/qwen3-vl-card-ocr-lora
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 3
+bf16: true
+logging_steps: 10
+save_steps: 500
