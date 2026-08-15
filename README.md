@@ -204,7 +204,16 @@ The .env.example file centralizes device, Milvus, Ollama, ChromaDB, embedding ca
 ## Model and Data Link
 
 This link provides a cropped image card model trained on a YOLOv8 model, a dataset of over 200,000 player trade cards, and manually annotated sports trade card image data suitable for OCR post-training processing: [URL](https://pan.baidu.com/s/1XUsRj9SJlq7E2hbFE3CWuw) 
+
 Due to potential legal risks associated with the data, the extraction code can be obtained by contacting fengyanlin128@gmail.com.
+
+⚠️Copyright Notice
+
+This project only releases the algorithm code and annotation metadata (JSON tags).
+
+If you require the image dataset for academic research or personal use, please contact the project author via email to request it.
+
+The dataset is for personal academic research use only and is prohibited from commercial use, secondary distribution, or public dissemination of the original card images.
 
 ## Evaluation
 
@@ -224,14 +233,6 @@ docker run --rm -p 8000:8000 --env-file .env -v ./models:/app/models -v ./data:/
 ## License
 
 See LICENSE. Review the licenses of Qwen, InsightFace, DINOv2, OpenCLIP/SLIP, YOLOv8, BGE-M3, Milvus, ChromaDB and project datasets before redistribution.
-
-##  ⚠️Copyright Notice
-
-This project only releases the algorithm code and annotation metadata (JSON tags).
-
-If you require the image dataset for academic research or personal use, please contact the project author via email to request it.
-
-The dataset is for personal academic research use only and is prohibited from commercial use, secondary distribution, or public dissemination of the original card images.
 
 ## Acknowledgements
 
