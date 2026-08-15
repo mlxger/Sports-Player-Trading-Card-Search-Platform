@@ -103,7 +103,8 @@ CARD_PIPELINE_YOLO_MODEL_PATH=models/detection/yolov8_card.pt
 
 ### OCR 识别
 
-因为资源限制原因，尚未能提供经过LoRA微调训练的Qwen3-VL模型，仓库原生项目使用的是Ollama上的Qwen3-VL-8B模型，实际测试也有90%+的准确性
+因为资源限制原因，尚未能提供经过LoRA微调训练的Qwen3-VL模型，仓库原生项目使用的是Ollama上的Qwen3-VL-8B模型，实际测试也有90%+的准确性.
+如果想要更优性能的模型，以下有链接提供了部分OCR训练的图像数据，可以根据仓库的模型配置自行训练。
 
 ~~~bash
 ollama serve
