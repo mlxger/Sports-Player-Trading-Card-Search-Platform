@@ -20,12 +20,6 @@ venv/
 data/
 outputs/
 checkpoints/
-*.pt
-*.pth
-*.onnx
-*.safetensors
-*.joblib
-*.bin
 
 # Local application state
 chroma_db/
