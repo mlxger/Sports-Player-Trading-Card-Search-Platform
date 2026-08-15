@@ -202,7 +202,16 @@ data/ocr/{train,validation,test}.*
 ## Model and Data Link
 
 此链接提供了一个在 YOLOv8 模型基础上训练的裁剪图像卡模型、超过 20 万张球员交易卡的数据，以及适合 OCR 训练后处理的手动标注体育交易卡图像数据：[URL](https://pan.baidu.com/s/1XUsRj9SJlq7E2hbFE3CWuw).
-由于数据有一定的法律风险, 提取码可以联系邮箱fengyanlin128@gmail.com 获取
+
+由于数据有一定的法律风险, 提取码可以联系邮箱fengyanlin128@gmail.com 获取.
+
+⚠️版权声明
+
+本项目仅发布算法代码和测试图片。
+
+如果您需要图像数据集用于学术研究或个人用途，请通过电子邮件联系项目作者提出申请。
+
+该数据集仅供个人学术研究使用，禁止商业用途、二次分发或公开传播原始卡片图像。
 
 ## Evaluation
 
