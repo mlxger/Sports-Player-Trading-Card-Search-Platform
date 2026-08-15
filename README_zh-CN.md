@@ -96,7 +96,7 @@ curl -X POST http://localhost:8000/api/v1/retrieval/search -F "image=@card.jpg" 
 
 ~~~dotenv
 CARD_PIPELINE_PREPROCESSING_MODE=yolo
-CARD_PIPELINE_YOLO_MODEL_PATH=models/detection/0923all.pt
+CARD_PIPELINE_YOLO_MODEL_PATH=models/detection/yolov8_card.pt
 ~~~
 
 索引与检索时会自动完成卡片检测、裁剪和标准化。
@@ -159,7 +159,7 @@ assets/
 ## Model and Data Workflow
 
 ~~~text
-models/detection/0923all.pt
+models/detection/yolov8_card.pt
 models/ranking/ranking_model.joblib
 models/rag/BAAI/bge-m3/
 data/cards/
@@ -194,4 +194,3 @@ docker run --rm -p 8000:8000 --env-file .env -v ./models:/app/models -v ./data:/
 ## Disclaimer
 
 CardScope AI 是工程与研究工具。高价值卡片、鉴定、定价和库存决策应结合人工复核；使用者负责数据授权、模型许可证、安全策略和线上部署管理。
-

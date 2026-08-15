@@ -98,7 +98,7 @@ curl -X POST http://localhost:8000/api/v1/retrieval/search -F "image=@card.jpg" 
 
 ~~~dotenv
 CARD_PIPELINE_PREPROCESSING_MODE=yolo
-CARD_PIPELINE_YOLO_MODEL_PATH=models/detection/0923all.pt
+CARD_PIPELINE_YOLO_MODEL_PATH=models/detection/yolov8_card.pt
 ~~~
 
 YOLO is applied automatically during indexing and retrieval.
@@ -161,7 +161,7 @@ assets/
 ## Model and Data Workflow
 
 ~~~text
-models/detection/0923all.pt
+models/detection/yolov8_card.pt
 models/ranking/ranking_model.joblib
 models/rag/BAAI/bge-m3/
 data/cards/
@@ -196,4 +196,3 @@ Ultralytics, InsightFace, Meta DINOv2, LAION OpenCLIP/SLIP, LightGBM, Milvus, Ch
 ## Disclaimer
 
 CardScope AI is an engineering and research toolkit. Similarity and extracted fields should be reviewed for high-value cards, authentication, pricing and inventory decisions. Operators are responsible for data rights, model licenses, security and deployment policies.
-

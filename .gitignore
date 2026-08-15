@@ -16,8 +16,7 @@ venv/
 !.env.example
 *.log
 
-# Model, vector database and dataset artifacts
-models/
+# Vector database, dataset and training artifacts
 data/
 outputs/
 checkpoints/
