@@ -225,6 +225,14 @@ docker run --rm -p 8000:8000 --env-file .env -v ./models:/app/models -v ./data:/
 
 See LICENSE. Review the licenses of Qwen, InsightFace, DINOv2, OpenCLIP/SLIP, YOLOv8, BGE-M3, Milvus, ChromaDB and project datasets before redistribution.
 
+##  ⚠️Copyright Notice
+
+This project only releases the algorithm code and annotation metadata (JSON tags).
+
+If you require the image dataset for academic research or personal use, please contact the project author via email to request it.
+
+The dataset is for personal academic research use only and is prohibited from commercial use, secondary distribution, or public dissemination of the original card images.
+
 ## Acknowledgements
 
 Ultralytics, InsightFace, Meta DINOv2, LAION OpenCLIP/SLIP, LightGBM, Milvus, ChromaDB, Ollama, Qwen and LLaMA Factory.
