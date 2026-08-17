@@ -66,8 +66,8 @@ Python 3.10–3.13, Git, 8 GB+ RAM, CUDA for high-throughput embedding/LoRA trai
 ## Installation
 
 ~~~bash
-git clone <your-github-url>/cardscope-ai.git
-cd cardscope-ai
+git clone https://github.com/mlxger/sports-card-scope-ai.git
+cd sports-card-scope-ai
 python -m venv .venv
 pip install -e ".[dev,retrieval,preprocessing,ranking,parsing]"
 copy .env.example .env
